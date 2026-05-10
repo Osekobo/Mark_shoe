@@ -8,7 +8,6 @@ from .config import settings  # Changed to .config
 # Create database tables
 Base.metadata.create_all(bind=engine)
 # Base.metadata.drop_all(bind=engine)
-# print("✅ Tables dropped!")
 
 app = FastAPI(
     title="Shoe Store API - Kenya",
@@ -31,7 +30,6 @@ app.add_middleware(
     allowed_hosts=["*"]
 )
 
-# Include routers
 app.include_router(auth.router, prefix="/api/auth", tags=["Authentication"])
 app.include_router(products.router, prefix="/api/products", tags=["Products"])
 app.include_router(cart.router, prefix="/api/cart", tags=["Cart"])
